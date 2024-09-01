@@ -1,5 +1,4 @@
-import { Controller, Logger, Get, Req, Res } from '@nestjs/common';
-import { Request, Response } from 'express';
+import { Controller, Render, Logger, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,7 +9,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  init(@Req() req: Request, @Res() res: Response): void {
-    res.render('app');
+  @Render('app')
+  init(): void {
   }
 }
